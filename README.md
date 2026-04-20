@@ -1,70 +1,194 @@
-# Getting Started with Create React App
+# 🔐 Passkey Authentication App (Bachelor Project)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a **Passkey Authentication System** built with:
 
-## Available Scripts
+* ⚛️ React (Frontend)
+* 🟢 Node.js + Express (Backend)
+* 🔑 WebAuthn API (Passkeys)
 
-In the project directory, you can run:
+It allows users to:
 
-### `npm start`
+* Register using a **passkey**
+* Login securely without passwords
+* Authenticate using device biometrics (Windows Hello, fingerprint, etc.)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🚀 Features
 
-### `npm test`
+* ✅ Passkey Registration (WebAuthn)
+* ✅ Passkey Login (Passwordless)
+* ✅ Secure Challenge-Response Authentication
+* ✅ React Routing (Login → Dashboard)
+* ✅ Simple Express Backend
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🛠️ Technologies Used
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* React
+* React Router
+* Node.js
+* Express
+* WebAuthn API
+* Crypto (Node.js)
+* Base64URL encoding
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📁 Project Structure
 
-### `npm run eject`
+```
+project/
+│
+├── backend/
+│   └── server.js
+│
+├── frontend/
+│   ├── App.js
+│   ├── Login.js
+│   ├── Dashboard.js
+│   └── index.js
+│
+└── README.md
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
+## ✅ Requirements
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Node.js (v18+ recommended)
+- npm
+- Modern browser (Chrome, Edge) with WebAuthn support
+## ⚙️ Installation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 1. Clone the repository
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
+git clone https://github.com/riionah/passkey-app.git
+cd passkey-app
+```
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 2. Install backend dependencies
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+cd backend
+npm install
+```
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 3. Install frontend dependencies
 
-### Analyzing the Bundle Size
+```
+cd ../frontend
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## ▶️ Running the Project
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Start Backend
 
-### Advanced Configuration
+```
+cd backend
+node server.js
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Backend runs on:
 
-### Deployment
+```
+http://localhost:5000
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+### Start Frontend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+cd frontend
+npm start
+```
+
+Frontend runs on:
+
+```
+http://localhost:3000
+```
+
+---
+
+## 🔐 How It Works
+
+### Register
+
+1. User enters username
+2. Server generates a **challenge**
+3. Browser creates a **credential (passkey)**
+4. Credential is saved on server
+
+### Login
+
+1. Server sends a new challenge
+2. Browser signs the challenge using the stored passkey
+3. If valid → user is authenticated
+
+---
+
+## ⚠️ Important Notes
+
+* This is a **demo project** (in-memory storage is used)
+* Data is lost when server restarts
+* For production:
+
+  * Use a database (MongoDB / PostgreSQL)
+  * Implement full WebAuthn verification
+  * Add HTTPS (required for passkeys)
+
+---
+
+## 🎓 Purpose
+
+This project was developed as part of a **Bachelor Thesis** to demonstrate:
+
+* Passwordless authentication
+* Modern web security practices
+* WebAuthn implementation
+
+---
+
+## 📸 Screens
+
+* Login page (Register & Login with Passkey)
+* Dashboard after successful login
+
+---
+
+## 📌 Future Improvements
+
+* Database integration
+* Full WebAuthn verification
+* Multi-device support
+* UI improvements
+
+---
+
+## 👤 Author
+
+Rione Hazrolli
+Computer Science Student
+
+---
+
+## 📄 License
+
+This project is for educational purposes only.
+
+---
+
+## 🔒 Security Note
+
+This project demonstrates the basics of WebAuthn authentication.
+Full verification of signatures and attestation is not implemented.
